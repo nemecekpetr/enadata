@@ -25,7 +25,7 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--light-gray);
+            background: var(--white);
             color: var(--primary-dark);
             line-height: 1.6;
             font-size: 16px;
@@ -161,19 +161,31 @@
             }
         }
 
-        /* Bar Chart */
+        /* Bar Chart - Modern Style */
         .chart-container {
-            padding-bottom: 0.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f7 100%);
+            border-radius: 8px;
+            margin-top: 1rem;
         }
 
         .bar-chart {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: flex-end;
-            height: 180px;
-            padding: 1rem 0;
-            gap: 0.75rem;
-            border-bottom: 2px solid var(--light-gray);
+            height: 200px;
+            padding: 1.5rem 0.5rem 0.5rem;
+            position: relative;
+        }
+
+        .bar-chart::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 30px;
+            height: 1px;
+            background: #e5e5e5;
         }
 
         .bar-item {
@@ -182,51 +194,110 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            min-width: 0;
+            max-width: 80px;
         }
 
         .bar-value {
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--primary-dark);
+            background: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
 
         .bar {
-            width: 100%;
-            max-width: 45px;
-            background: var(--accent);
+            width: 36px;
+            border-radius: 4px 4px 0 0;
+            background: linear-gradient(180deg, var(--accent) 0%, #00a090 100%);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bar:hover {
+            transform: scaleY(1.02);
+            box-shadow: 0 4px 12px rgba(0, 194, 170, 0.3);
         }
 
         .bar.purple {
-            background: var(--primary);
+            background: linear-gradient(180deg, var(--light-purple) 0%, var(--primary) 100%);
+        }
+
+        .bar.purple:hover {
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
         }
 
         .bar.warning {
-            background: var(--orange);
+            background: linear-gradient(180deg, #fbbf24 0%, var(--orange) 100%);
+        }
+
+        .bar.warning:hover {
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
         }
 
         .bar-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-gray);
             text-align: center;
-            font-weight: 500;
+            font-weight: 600;
+            padding-top: 0.5rem;
         }
 
         .chart-evaluation {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: #fef3c7;
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: white;
+            border-radius: 6px;
             border-left: 4px solid var(--orange);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
         .chart-evaluation p {
             font-size: 0.9rem;
             color: var(--primary-dark);
             margin: 0;
+            line-height: 1.5;
         }
 
         .chart-evaluation strong {
             color: var(--orange);
+            font-weight: 700;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .legend-dot.green {
+            background: var(--accent);
+        }
+
+        .legend-dot.purple {
+            background: var(--primary);
+        }
+
+        .legend-dot.orange {
+            background: var(--orange);
         }
 
         /* Checklist */
@@ -513,37 +584,43 @@
                     <div class="bar-chart">
                         <div class="bar-item">
                             <div class="bar-value">34</div>
-                            <div class="bar" style="height: 85px;"></div>
-                            <div class="bar-label">Čvc</div>
+                            <div class="bar" style="height: 90px;"></div>
+                            <div class="bar-label">Červenec</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">18</div>
-                            <div class="bar" style="height: 45px;"></div>
-                            <div class="bar-label">Srp</div>
+                            <div class="bar" style="height: 48px;"></div>
+                            <div class="bar-label">Srpen</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">60</div>
-                            <div class="bar" style="height: 150px;"></div>
-                            <div class="bar-label">Zář</div>
+                            <div class="bar" style="height: 160px;"></div>
+                            <div class="bar-label">Září</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">21</div>
-                            <div class="bar" style="height: 52px;"></div>
-                            <div class="bar-label">Říj</div>
+                            <div class="bar" style="height: 56px;"></div>
+                            <div class="bar-label">Říjen</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">57</div>
-                            <div class="bar" style="height: 142px;"></div>
-                            <div class="bar-label">Lis</div>
+                            <div class="bar" style="height: 152px;"></div>
+                            <div class="bar-label">Listopad</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">26</div>
-                            <div class="bar" style="height: 65px;"></div>
-                            <div class="bar-label">Pro</div>
+                            <div class="bar" style="height: 69px;"></div>
+                            <div class="bar-label">Prosinec</div>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot green"></span>
+                            Hovory, e-maily, úkoly, schůzky
                         </div>
                     </div>
                     <div class="chart-evaluation">
-                        <p><strong>Hodnocení:</strong> Aktivity zatím zůstávají za očekáváním. Průměr 36 aktivit měsíčně je pro akviziční roli nedostatečný.</p>
+                        <p><strong>Hodnocení:</strong> Průměr 36 aktivit měsíčně. Pro rok 2026 je potřeba navýšit objem aktivit a zaměřit se na kvalitní prospecting.</p>
                     </div>
                 </div>
             </div>
@@ -554,32 +631,42 @@
                     <div class="bar-chart">
                         <div class="bar-item">
                             <div class="bar-value">16</div>
-                            <div class="bar purple" style="height: 130px;"></div>
-                            <div class="bar-label">Čvc</div>
+                            <div class="bar purple" style="height: 160px;"></div>
+                            <div class="bar-label">Červenec</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">3</div>
-                            <div class="bar warning" style="height: 24px;"></div>
-                            <div class="bar-label">Srp</div>
+                            <div class="bar warning" style="height: 30px;"></div>
+                            <div class="bar-label">Srpen</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">3</div>
-                            <div class="bar warning" style="height: 24px;"></div>
-                            <div class="bar-label">Zář</div>
+                            <div class="bar warning" style="height: 30px;"></div>
+                            <div class="bar-label">Září</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">4</div>
-                            <div class="bar warning" style="height: 32px;"></div>
-                            <div class="bar-label">Říj</div>
+                            <div class="bar warning" style="height: 40px;"></div>
+                            <div class="bar-label">Říjen</div>
                         </div>
                         <div class="bar-item">
                             <div class="bar-value">3</div>
-                            <div class="bar warning" style="height: 24px;"></div>
-                            <div class="bar-label">Lis</div>
+                            <div class="bar warning" style="height: 30px;"></div>
+                            <div class="bar-label">Listopad</div>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot purple"></span>
+                            V cíli (15+)
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot orange"></span>
+                            Pod cílem
                         </div>
                     </div>
                     <div class="chart-evaluation">
-                        <p><strong>Hodnocení:</strong> Počet schůzek je výrazně pod cílem. Průměr ~6 schůzek/měsíc, cíl by měl být 15–20 schůzek měsíčně.</p>
+                        <p><strong>Hodnocení:</strong> Průměr ~6 schůzek měsíčně. V roce 2026 cílíme na 15–20 schůzek měsíčně, což bude klíčové pro naplnění obchodních cílů.</p>
                     </div>
                 </div>
             </div>
